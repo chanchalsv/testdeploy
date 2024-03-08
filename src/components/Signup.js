@@ -27,7 +27,7 @@ const Signup = ({ handleChange }) => {
         throw new Error("Passwords do not match.");
       }
 
-      const response = await axios.post("http://localhost:8080/api/auth/register", {
+      const response = await axios.post("http://44.212.193.143:8080/api/auth/register", {
         name,
         email,
         password,
