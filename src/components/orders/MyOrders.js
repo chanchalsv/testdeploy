@@ -18,7 +18,7 @@ const MyOrders = () => {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                Viewfff Themes
+                View Themes
               </a>
             </li>
             <li>
@@ -28,12 +28,12 @@ const MyOrders = () => {
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                1 .Theme 1
+                1 . Minimal
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                2 .Theme 2
+                2 . Complexion
               </a>
             </li>
           </ul>

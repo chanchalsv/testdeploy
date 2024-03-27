@@ -10,6 +10,7 @@ const ThemeProvider = (props) => {
     const storedData = JSON.parse(localStorage.getItem("customizerData"));
     return storedData || Utils.initialCustomizerData;
   });
+  console.log("FOntList",fontList)
   const updateCustomizerData = (newValue) => {
     setCustomizerData(newValue);
   };
@@ -592,7 +593,7 @@ const ThemeProvider = (props) => {
 
   useEffect(() => {
     const linkElement = document.createElement("link");
-    linkElement.href = `https://fonts.googleapis.com/css2?family=${customizerData.CustomizerTitle.CustomizerTitleFontFamily.replace(
+    linkElement.href = `https://fonts.googleapis.com/css2?family=${customizerData.CustomizerTitle.CustomizerTitleFontFamily?.replace(
       /\s/g,
       "+"
     )}:wght@400;700&display=swap`;

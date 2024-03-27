@@ -9,29 +9,40 @@ const {
 	deleteProfileController,
 } = require("../controllers/userController");
 const authMiddleware = require("../middlewares/authMiddleware");
-
+const multer = require('multer');
 const router = express.Router();
+// Multer configuration for file upload
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, '');
+	},
+	filename: function (req, file, cb) {
+		cb(null, new Date().toISOString() + '-' + file.originalname);
+	}
+});
+
+const upload = multer({ storage: storage });
 
 //routes
 //POST USER DETAILS||POST
-router.post('/addprofiledetails', authMiddleware, addProfileDetails)
+router.post('/addprofiledetails', upload.single('profileImage'), addProfileDetails)
 
 //GET USER DETAILS || GET
-router.get('/getprofiledetails', authMiddleware, getUserProfileController);  //accessible to
+router.get('/getprofilelist', getUserProfileController);  //accessible to
 
 // GET USER || GET
-router.get("/getuser", authMiddleware, getUserController);
+router.get("/getuser/:id", getUserController);
 
 // UPDATE PROFILE
-router.put("/updateuser", authMiddleware, updateUserController);
+router.put("/updateuser", updateUserController);
 
 //password update
-router.post("/updatepassword", authMiddleware, updatePasswordController);
+router.post("/updatepassword", updatePasswordController);
 
 // RESET PASSWORD
-router.post("/resetpassword", authMiddleware, resetPasswordController);
+router.post("/resetpassword", resetPasswordController);
 
 // delete USER
-router.delete("/deleteuser/:id", authMiddleware, deleteProfileController);
+router.delete("/deleteuser/:id", deleteProfileController);
 
 module.exports = router;

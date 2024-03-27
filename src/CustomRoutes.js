@@ -26,6 +26,12 @@ const CustomRoutes = [
     component: Page.AddImage,
     exact: true,
   },
+  {
+    path: '/product-priview',
+    layout: Layout.PreviewLayout,
+    component: Page.AddImage,
+    exact: true,
+  },
 
   {
     path: "/printing-methods",
@@ -68,6 +74,12 @@ const CustomRoutes = [
     exact: true,
     layout: Layout.DashboardLayout,
     component: Page.Dashboard,
+  },
+  {
+    path: "/your-profile",
+    exact: true,
+    layout: Layout.DefaultLayout,
+    component: Page.YourProfile,
   },
   {
     path: "/:page",

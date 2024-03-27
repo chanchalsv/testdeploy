@@ -38,6 +38,6 @@ export const completeShopifyAuth = async (setShopifyData) => {
     } catch (error) {
       console.log(error);
     }
-    window.history.replaceState({}, document.title, window.location.pathname);
+    window.history?.replaceState({}, document.title, window.location.pathname);
   }
 };

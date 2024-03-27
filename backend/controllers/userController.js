@@ -3,8 +3,13 @@ const bcrypt = require("bcryptjs");
 
 const addProfileDetails = async (req, res) => {
 	try {
-		const { userId, city, state, country, address, profileImage } = req.body;
+		const { userId, city, state, country, address } = req.body;
+		let profileImage = '';
+		if (req.file) {
+			profileImage = req.file.path
+		}
 		const user = await userModel.findById(userId);
+
 		if (!user) {
 			return res.status(404).json({ success: false, message: "User not found" });
 		}
@@ -23,10 +28,45 @@ const addProfileDetails = async (req, res) => {
 //  GET USER PROFILE
 const getUserProfileController = async (req, res) => {
 	try {
+        // Find all users
+        const userList = await userModel.find();
+
+        // Check if any users exist
+        if (!userList || userList.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No users found",
+            });
+        }
+
+        // Hide sensitive information
+        userList.forEach(user => {
+            user.password = undefined;
+        });
+
+        // Respond with the list of users
+        res.status(200).json({
+            success: true,
+            message: "User list retrieved successfully",
+            users: userList,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            success: false,
+            message: "Error retrieving user list",
+            error: error,
+        });
+    }
+	
+};
+// GET USER INF
+const getUserController = async (req, res) => {
+	try {
 		// Find user by ID
 		const user = await userModel.findById(req.params.id);
 
-		// Check if user exists
+		// Validation
 		if (!user) {
 			return res.status(404).json({
 				success: false,
@@ -40,43 +80,14 @@ const getUserProfileController = async (req, res) => {
 		// Respond with user profile
 		res.status(200).json({
 			success: true,
-			message: "User profile retrieved successfully",
-			user: user,
-		});
-	} catch (error) {
-		console.log(error);
-		res.status(500).json({
-			success: false,
-			message: "Error retrieving user profile",
-			error: error,
-		});
-	}
-};
-// GET USER INFGO
-const getUserController = async (req, res) => {
-	try {
-		// find user
-		const user = await userModel.findById({ _id: req.body.id });
-		//validation
-		if (!user) {
-			return res.status(404).send({
-				success: false,
-				message: "User Not Found",
-			});
-		}
-		//hinde password
-		user.password = undefined;
-		//resp
-		res.status(200).send({
-			success: true,
-			message: "User get Successfully",
+			message: "User retrieved successfully",
 			user,
 		});
 	} catch (error) {
-		console.log(error);
-		res.status(500).send({
+		console.error("Error in getUserController:", error);
+		res.status(500).json({
 			success: false,
-			message: "Eror in Get User API",
+			message: "Error retrieving user",
 			error,
 		});
 	}

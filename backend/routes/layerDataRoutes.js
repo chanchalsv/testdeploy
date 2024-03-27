@@ -23,10 +23,10 @@ router.param('id', async (req, res, next, id) => {
 });
 
 // Routes
-router.get('/layerdata', authMiddleware, layerDataController.getAllLayerData);
-router.get('/layerdata/:id', authMiddleware, layerDataController.getLayerDataById);
-router.post('/layerdata', authMiddleware, layerDataController.createLayerData);
-router.patch('/layerdata/:id', authMiddleware, layerDataController.updateLayerData);
-router.delete('/layerdata/:id', authMiddleware, layerDataController.deleteLayerData);
+router.get('/layerdata', layerDataController.getAllLayerData);
+router.get('/layerdata/:id', layerDataController.getLayerDataById);
+router.post('/layerdata',  layerDataController.createLayerData);
+router.patch('/layerdata/:id',  layerDataController.updateLayerData);
+router.delete('/layerdata/:id',  layerDataController.deleteLayerData);
 
 module.exports = router;

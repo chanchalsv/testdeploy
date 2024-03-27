@@ -1969,6 +1969,11 @@ button.them_button {
   width: 50%;
   position: relative;
 }
+.products_col_left {
+  width: 50%;
+  position: relative;
+  overflow-y: auto;
+}
 
 .products_bottom_section i.bi.bi-zoom-in {
   display: block;

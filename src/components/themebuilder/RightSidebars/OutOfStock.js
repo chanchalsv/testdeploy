@@ -89,7 +89,8 @@ const OutOfStock = () => {
                       height: "30px",
                       border: "2px solid #000",
                       backgroundColor:
-                        customizerData?.OutOfStock?.OutOfStockBadgeBackgroundColor,
+                        customizerData?.OutOfStock
+                          ?.OutOfStockBadgeBackgroundColor,
                     }}
                   ></span>
                 </div>
@@ -145,17 +146,15 @@ const OutOfStock = () => {
                   <span
                     data-element="OutOfStockBadgeBorderColor"
                     onClick={(e) =>
-                      handleColorPickerClick(
-                        e,
-                        "OutOfStockBadgeBorderColor"
-                      )
+                      handleColorPickerClick(e, "OutOfStockBadgeBorderColor")
                     }
                     style={{
                       display: "inline-block",
                       width: "30px",
                       height: "30px",
                       border: "2px solid #000",
-                      backgroundColor: customizerData?.OutOfStock?.OutOfStockBadgeBorderColor,
+                      backgroundColor:
+                        customizerData?.OutOfStock?.OutOfStockBadgeBorderColor,
                     }}
                   ></span>
                 </div>
@@ -172,8 +171,12 @@ const OutOfStock = () => {
             style={{ position: "absolute", zIndex: 2 }}
           >
             <ChromePicker
-              color={{ hex: customizerData.OutOfStock.OutOfStockBadgeBorderColor }}
-              onChange={(color) => handleColorChange(color, "OutOfStockBadgeBorderColor")}
+              color={{
+                hex: customizerData.OutOfStock.OutOfStockBadgeBorderColor,
+              }}
+              onChange={(color) =>
+                handleColorChange(color, "OutOfStockBadgeBorderColor")
+              }
             />
           </div>
         )}
@@ -188,10 +191,7 @@ const OutOfStock = () => {
                   <span
                     data-element="OutOfStockBannerTextColor"
                     onClick={(e) =>
-                      handleColorPickerClick(
-                        e,
-                        "OutOfStockBannerTextColor"
-                      )
+                      handleColorPickerClick(e, "OutOfStockBannerTextColor")
                     }
                     style={{
                       display: "inline-block",
@@ -236,7 +236,10 @@ const OutOfStock = () => {
                   <span
                     data-element="OutOfStockBannerBackgroundColor"
                     onClick={(e) =>
-                      handleColorPickerClick(e, "OutOfStockBannerBackgroundColor")
+                      handleColorPickerClick(
+                        e,
+                        "OutOfStockBannerBackgroundColor"
+                      )
                     }
                     style={{
                       display: "inline-block",
@@ -244,7 +247,8 @@ const OutOfStock = () => {
                       height: "30px",
                       border: "2px solid #000",
                       backgroundColor:
-                        customizerData?.OutOfStock?.OutOfStockBannerBackgroundColor,
+                        customizerData?.OutOfStock
+                          ?.OutOfStockBannerBackgroundColor,
                     }}
                   ></span>
                 </div>
@@ -262,7 +266,8 @@ const OutOfStock = () => {
           >
             <ChromePicker
               color={{
-                hex: customizerData?.OutOfStock?.OutOfStockBannerBackgroundColor,
+                hex: customizerData?.OutOfStock
+                  ?.OutOfStockBannerBackgroundColor,
               }}
               onChange={(color) =>
                 handleColorChange(color, "OutOfStockBannerBackgroundColor")

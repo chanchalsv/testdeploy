@@ -10,12 +10,10 @@ const Sidebar = () => {
   const [InputType, setInputType] = useState("");
   const [displayType, setDisplayType] = useState("");
   const handleModal = (e, type) => {
-    console.log("hiiiiiii");
     setOpenModal(type);
   };
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("selectedData")) || {};
-    console.log("data", data);
     dispatch(
       setProductDataInput({
         InputType: data?.productDataInput?.InputType,

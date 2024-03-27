@@ -23,7 +23,7 @@ const Login = ({ handleChange }) => {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        "http://44.212.193.143:8080/api/auth/login",
+        "http://localhost:8080/api/auth/login",
         {
           email,
           password,

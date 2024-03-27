@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const layerDataSchema = new mongoose.Schema({
-	layerId: { type: String, required: true },
-	inputType: { type: String, required: true },
-	displayType: { type: String, required: true },
-	imageTitle: { type: String, required: true },
+	layerId: { type: String },
+	inputType: { type: String },
+	displayType: { type: String },
+	imageTitle: { type: String },
 	thumbnailType: { type: Boolean, default: false },
 	labelType: { type: Boolean, default: false },
 	imageName: { type: String },

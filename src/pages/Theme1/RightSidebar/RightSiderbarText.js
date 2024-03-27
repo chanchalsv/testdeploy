@@ -22,7 +22,6 @@ const [selectedColor, setSelectedColor] = useState("#808080");
     
   };
   
-  console.log("colors",colors)
   const handleTitle = (e) => {
     setImageText(e.target.value);
   };

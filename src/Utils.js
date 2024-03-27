@@ -34,14 +34,14 @@ const Utils = {
       CustomizerTitleDividerThickness: "0px",
     },
     LayersPanel: {
-      LayersPanelPosition: "",
+      LayersPanelPosition: "left",
       LayersPanelBackgroundColor: "#ffff",
       LayersPanelBorderColor: "#ffff",
       LayersPanelBorderThickness: "0px",
       LayersPanelErrorColor: "#ffff",
     },
     LayersList: {
-      LayersListFontColor: "#ffff",
+      LayersListFontColor: "#000000",
       LayersListFontSize: "",
       LayersListFontFamily: "",
       LayersListDiscriptionFontColor: "#ffff",
@@ -137,8 +137,8 @@ const Utils = {
       DescriptionMobileFontSize: "",
     },
     OutOfStock: {
-      OutOfStockBadgeIconColor: "#ffff",
-      OutOfStockBadgeBackgroundColor: "#ffff",
+      OutOfStockBadgeIconColor: "#000000",
+      OutOfStockBadgeBackgroundColor: "",
       OutOfStockBadgeBorderWidth: "",
       OutOfStockBadgeBorderColor: "#ffff",
       OutOfStockBannerTextColor: "#ffff",

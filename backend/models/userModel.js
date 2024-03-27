@@ -42,9 +42,11 @@ const userSchema = new mongoose.Schema(
 		// 	enum: ["clinet", "admin", "vendor", "driver"],
 		// },
 		profile: {
-			type: String,
-			default:
-				"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png",
+			// type: String,
+			// default:
+			// 	"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png",
+			data: Buffer,
+			contentType: String,
 		},
 
 	},

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
+import { useDispatch, useSelector } from "react-redux";
+import { resetState } from "../../features/customizeProductSlice";
 const MyProduct = (props) => {
+  const dispatch=useDispatch()
   const navigate = useNavigate()
   const [products, setProducts] = useState([]);
 
@@ -23,6 +26,7 @@ const MyProduct = (props) => {
  
 const handleNavigate=()=>{
   navigate("/product-customizer") 
+  dispatch(resetState())
   
 }
   return (
@@ -42,7 +46,7 @@ const handleNavigate=()=>{
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                Viewfff Themes
+                View Themes
               </a>
             </li>
             <li>
@@ -52,12 +56,12 @@ const handleNavigate=()=>{
             </li>
             <li onClick={handleNavigate}>
               <a className="dropdown-item" >
-                1 .Theme 1
+                1 . Minimal
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                2 .Theme 2
+                2 . Complexion
               </a>
             </li>
           </ul>

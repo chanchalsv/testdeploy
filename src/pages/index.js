@@ -6,11 +6,11 @@ import PricingRules from "./PricingRules";
 import ThemeSelector from "./ThemeSelector";
 import PrintingMethods from "./PrintingMethods";
 import SavedDesigns from "./SavedDesigns";
-import AddImage from "../pages/Theme1/AddImage/AddImage";
+import AddImage from "../pages/ProductCustomizer/AddImage/AddImage"
 import ThemeAddProduct from "./Theme1/ThemeAddProduct";
 import ThemeAddProduct2 from "./Theme1/TheneAddProduct2";
 import ThemeBuilder from "./ThemeBuilder";
-import YourProfile from "./Your-Profile";
+import YourProfile from "./YourProfile";
 export default {
   ThemeAddProduct2,
   ThemeAddProduct,

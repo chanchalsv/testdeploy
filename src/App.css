@@ -3747,6 +3747,8 @@ main#main_section\ add_theme_wrapper_section .printing_methods_switch_tag {
 .creat_modal_producat {
   display: flex;
   gap: 8px;
+  padding: 10px 0px;
+  border-bottom: 1px solid rgb(217, 216, 216);
 }
 
 #creat_inpuut_modall .mmodal {
@@ -4011,6 +4013,35 @@ ul.add_modal_Select_menu {
   cursor: pointer;
 }
 
+.select_display_type {
+  opacity: 1; 
+  transition: opacity 0.5s ease; 
+}
+
+.select_display_type.fade {
+  opacity: 0.5; 
+}
+.fade-out {
+  opacity: 0.5;
+}
+.add_modal_Select_menu.selected {
+  border:3px solid #ff0f7b !important;
+  animation: pulseBorder 1s infinite alternate;
+}
+
+@keyframes pulseBorder {
+  0% {
+    border-width: 2px;
+  }
+  100% {
+    border-width: 4px;
+  }
+}
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
 .add_modal_header {
   padding: 15px;
 }
@@ -4084,7 +4115,7 @@ form#myForm ul li {
 }
 
 li.add_modal_Select_menu.selected {
-  border-color: red !important;
+  /* border-color; */
 }
 
 /* Accordions */

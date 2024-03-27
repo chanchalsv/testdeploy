@@ -35,7 +35,7 @@ app.use("/api/profile", require("./routes/userRoutes"));
 app.use("/api/product", require("./routes/imageRoutes"));
 app.use("/api/data", require("./routes/customizerRoutes"));
 app.use("/api/data", require('./routes/layerDataRoutes'))
-
+app.use('/api/shopify', require("./routes/shopifyRoutes"))
 // Fallback route to serve the index.html file for all other routes
 app.get("*", (req, res) => {
 	res.sendFile(path.join(buildPath, "index.html"));

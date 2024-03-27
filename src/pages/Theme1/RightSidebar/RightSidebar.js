@@ -114,7 +114,6 @@ const RightSidebar = () => {
     setDisplayTypeModal(!displayTypeModal);
   };
   const handleDisplayTypeOption = (e, type) => {
-    console.log(type);
     setDisplayTypeOption(type);
     if (type !== "Color") {
       setRightSidebarColor(false);
