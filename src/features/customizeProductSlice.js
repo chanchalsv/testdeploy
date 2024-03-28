@@ -7,7 +7,9 @@ export const initialState = {
   activeLayerData: [],
   imageColorData: [],
   imageData:[],
-  textColorData:[]
+  textColorData:[],
+  saveImage:"",
+
 };
 
 const customizeProductSlice = createSlice({
@@ -63,11 +65,15 @@ const customizeProductSlice = createSlice({
       state.layerData.splice(layerIndex, 1);
     }
   },
-  resetState: () => initialState,
+  
+  setSaveImage:(state,action)=>{
+    state.saveImage = action.payload;
   },
+  resetState: () => initialState,
+  }
 });
 
-export const {resetState,setTextColorData,setImageLayerID, setActiveLayerId, setActiveLayerData, setLayerData ,setImageColorData,setUpdateLayerData,setUpdateImageColorData,setImageData,setDeleteLayerData,setArchiveLayerData} =
+export const {setSaveImage,resetState,setTextColorData,setImageLayerID, setActiveLayerId, setActiveLayerData, setLayerData ,setImageColorData,setUpdateLayerData,setUpdateImageColorData,setImageData,setDeleteLayerData,setArchiveLayerData} =
   customizeProductSlice.actions;
 export const customizeProduct = (state) => state.customizeProduct;
 

@@ -4,7 +4,7 @@ import { FaRegEye } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import axios from "axios"
 const Header = () => {
-	const productCustomizerData = useSelector((state) => state.customizeProduct?.layerData);
+	const productCustomizerData = useSelector((state) => state.customizeProduct );
   console.log("cd",productCustomizerData)
 	const [isPopupOpen, setPopupOpen] = useState(false);
 	const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -23,14 +23,79 @@ const Header = () => {
 		window.location.reload();
 
 	}
+
+
+console.log("saveImage",productCustomizerData?.saveImage)
+const data={
+    "layerId": "layer123",
+    "inputType": "text",
+    "displayType": "banner",
+    "title": "Example Image",
+    "thumbnailType": false,
+    "labelType": true,
+    "imageName": "example.jpg",
+    "images": [
+        {
+            "id": "img1",
+            "layerId": "layer123",
+            "imageName": "example1.jpg",
+            "url": "https://example.com/image1.jpg"
+        },
+        {
+            "id": "img2",
+            "layerId": "layer123",
+            "imageName": "example2.jpg",
+            "url": "https://example.com/image2.jpg"
+        }
+    ],
+    "colors": [
+        {
+            "id": "color1",
+            "layerId": "layer123",
+            "colorName": "Red",
+            "color": "#FF0000"
+        },
+        {
+            "id": "color2",
+            "layerId": "layer123",
+            "colorName": "Blue",
+            "color": "#0000FF"
+        }
+    ],
+    "textName": "Example Text",
+    "text": [
+        {
+            "id": "text1",
+            "layerId": "layer123",
+            "textName": "Text 1",
+            "imageText": "Lorem ipsum dolor sit amet"
+        },
+        {
+            "id": "text2",
+            "layerId": "layer123",
+            "textName": "Text 2",
+            "imageText": "consectetur adipiscing elit"
+        }
+    ]
+}
+
 	const PublishProduct=()=>{
-		axios.post('http://localhost:8080/api/data/layerdata', productCustomizerData)
-		.then(response => {
-		  console.log('Data sent successfully:', response.data);
-		})
-		.catch(error => {
-		  console.error('Error sending data:', error);
-		});
+		axios.post('http://localhost:8080/api/data/layerdata',data)
+    .then(response => {
+      console.log('Data sent successfully to layerdata:', response.data);
+      axios.post('http://localhost:8080/api/shopify/products',data)
+        .then(response => {
+			console.log('shop before')
+          console.log('sending data to shopify:', response.data);
+		  console.log("shop after")
+        })
+        .catch(error => {
+          console.error('Error sending data to shopify:', error);
+        });
+    })
+    .catch(error => {
+      console.error('Error sending data layer data', error);
+    });
 	}
 
 	return (

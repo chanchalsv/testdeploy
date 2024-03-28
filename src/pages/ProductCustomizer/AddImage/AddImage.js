@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Stage, Layer, Text, Image as KonvaImage, Rect } from "react-konva";
 import "./AddImage.css";
-import { setDownloadedImage } from "../../../features/addImageSlice";
+// import { setDownloadedImage } from "../../../features/addImageSlice";
 import { useDispatch } from "react-redux";
-import { setImageColorData } from "../../../features/customizeProductSlice";
+import { setImageColorData, setSaveImage } from "../../../features/customizeProductSlice";
 
 const AddImage = () => {
   const title = useSelector((state) => state?.title);
@@ -24,7 +24,22 @@ const AddImage = () => {
   const [showText, setShowText] = useState([]);
   const stageRef = useRef(null);
   const dispatch = useDispatch();
+  const [downloadedImageLink, setDownloadedImageLink] = useState('');
   // <--------------------------Image Data-------------------------->
+  const handleDownloadClick = () => {
+  //   const stage = stageRef.current.getStage();
+
+  //   const dataURL = stage.toDataURL({
+  //     pixelRatio: 2,
+  //   });
+    
+  //   setDownloadedImageLink(dataURL)
+  // ;
+  //   dispatch(setSaveImage(dataURL))
+
+  };
+
+  console.log("DD",downloadedImageLink)
   useEffect(() => {
     const imagesToLoad = showImage.map((imageObj) => {
       return new Promise((resolve) => {
@@ -118,9 +133,11 @@ const AddImage = () => {
       });
 
       setImage(newImages);
+
     }
     
   };
+console.log()
   //////////////////////////
   const hexToRgb = (hex) => {
     hex = hex?.replace(/^#/, "");
@@ -440,6 +457,7 @@ const AddImage = () => {
                 )}
               </Layer>
             </Stage>
+            <button onClick={handleDownloadClick}>Save</button>
             <p>Your product will appear here</p>
           </div>
         </div>
